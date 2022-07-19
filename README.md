@@ -16,3 +16,9 @@ A corresponding Raspberry Pi OS has been made to make initial steps simple. If t
 
 Due to the large memory requirements of point cloud data, a high storage USB flash drive or external hard drive is likely necessary if data is not significantly downsized. In [openpylivox.py](./src/openpylivox.py), [pointcloudprocessor.py](./src/pointcloudprocessor.py), and [SnowMeasureLivox.py](./SnowMeasureLivox.py), the path string for saving data must be changed to reflect the external storage.
 
+## Configuration
+All parameters related to scheduling and data processing are found in [main_config.ini](./config/main_config.ini) and [processing_config.ini](./config/processing_config.ini) respectively. Due to the nature of the Ground Elevation routine, arrays must be limited to identical bin size and number of bins for ground level subtraction and direct comparison. Read the comments in those .ini files and their respective use in [SnowMeasureLivox.py](./SnowMeasureLivox.py) and
+[pointcloudprocessor.py](./src/pointcloudprocessor.py).
+
+## Main functionality
+Collection sessions are determined by the number of recordings and the duration of recordings. An entire session is performed when SnowMeasureLivox.py is executed; to perform another collection session, an OS level scheduler (such as a cron job) or altering SnowMeasureLivox.py to collect again is required.
