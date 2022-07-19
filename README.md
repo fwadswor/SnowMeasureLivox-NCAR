@@ -22,3 +22,10 @@ All parameters related to scheduling and data processing are found in [main_conf
 
 ## Main functionality
 Collection sessions are determined by the number of recordings and the duration of recordings. An entire session is performed when SnowMeasureLivox.py is executed; to perform another collection session, an OS level scheduler (such as a cron job) or altering SnowMeasureLivox.py to collect again is required.
+
+*Notes:*
+- A ground height measurement routine has not been fully developed. It should be as simple as altering a copy of SnowMeasureLivox.py to perform a collection session, and passing 0 as a placeholder for *ground_truth_elevations* (~line 60-70) in a copy of pointcloudprocessor.py. For a remote deployment, periodic measurements of ground elevation can be scheduled into the recording schedule, or can be set to run on boot.
+- There are print statements scattered throughout all modules used to verify the multiprocessing functionality during development. After testing and verification, these can be deleted to reduce overhead, or changed to logging statements and recorded to a .log file if post-hoc debugging is desired.
+- If the raw point cloud data is not desired, they should be deleted using os/shutil or something similar after all collections are complete in SnowMeasureLivox.py
+
+This project is still in development, please be patient!
