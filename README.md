@@ -28,4 +28,5 @@ Collection sessions are determined by the number of recordings and the duration 
 - There are print statements scattered throughout all modules used to verify the multiprocessing functionality during development. After testing and verification, these can be deleted to reduce overhead, or changed to logging statements and recorded to a .log file if post-hoc debugging is desired.
 - If the raw point cloud data is not desired, they should be deleted using os/shutil or something similar after all collections are complete in SnowMeasureLivox.py
 
+## Final Note
 This project is still in development, please be patient!
